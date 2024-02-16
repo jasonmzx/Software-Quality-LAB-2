@@ -43,17 +43,17 @@ public class BinaryAPIControllerTest {
     }
 
     @Test
-    public void add2() throws Exception {
-        this.mvc.perform(get("/and").param("operand1", "1100").param("operand2", "1010")) 
-                .andExpect(status().isOk())
-                .andExpect(content().string("1000")); 
-    }
-
-    @Test
     public void multiply() throws Exception {
         this.mvc.perform(get("/multiply").param("operand1", "101").param("operand2", "110")) 
             .andExpect(status().isOk())
             .andExpect(content().string("11110")); 
+    }
+
+    @Test
+    public void and() throws Exception {
+        this.mvc.perform(get("/and").param("operand1", "1100").param("operand2", "1010")) 
+                .andExpect(status().isOk())
+                .andExpect(content().string("1000")); 
     }
 
     @Test
